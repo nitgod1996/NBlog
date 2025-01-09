@@ -1,16 +1,17 @@
 module.exports = {
 	configureWebpack: {
 		resolve: {
-			alias: {
+			// 别名
+/*			alias: {
 				'assets': '@/assets',
 				'common': '@/common',
 				'components': '@/components',
 				'api': '@/api',
 				'views': '@/views',
 				'plugins': '@/plugins'
-			}
+			}*/
 		}
-	},
+	}/* ,
 	optimization: {
 		splitChunks: {
 			cacheGroups: {
@@ -34,5 +35,5 @@ module.exports = {
 				},
 			},
 		},
-	},
+	}, */
 }

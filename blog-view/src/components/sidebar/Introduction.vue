@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div class="ui segments m-box">
-			<div class="ui card">
+		<div class="m-box">
+			<div class="card">
 				<div class="image">
-					<img :src="introduction.avatar">
+					<img class="avatar" :src="introduction.avatar">
 				</div>
 				<div class="content" align="center">
 					<div class="header">{{ introduction.name }}</div>
@@ -52,11 +52,7 @@
 					</a>
 				</div>
 				<div>
-					<el-collapse accordion>
-						<el-collapse-item :title="item.title" :name="index" v-if="item.title" v-for="(item,index) in introduction.favorites" :key="index">
-							<div>{{ item.content }}</div>
-						</el-collapse-item>
-					</el-collapse>
+<!--          这里怎么设计待定-->
 				</div>
 			</div>
 		</div>
@@ -81,7 +77,8 @@
 				}
 			}
 		},
-		methods: {
+    methods: {
+		  // 滚动彩色字体特效的，我这里不需要
 			rollText() {
 				let r = document.getElementById('rollText')
 				let l = ""
@@ -122,7 +119,37 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+/*  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }*/
+  .image {
+    height: 10rem;
+    .avatar{
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 8rem;
+      border-radius: 4rem;
+      transition: all 0.25s ease 0s, opacity 0.6s cubic-bezier(0.5, 0, 0, 1) 0s !important;
+    }
+    .avatar:hover {
+      box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2), 0 2px 4px 0px rgba(0, 0, 0, 0.2), 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 8px 16px 0px rgba(0, 0, 0, 0.2) !important;
+      width: 8.5rem;
+
+    }
+    .avatar:active {
+      box-shadow: 0 1px 2px 0px rgba(72, 219, 251, 0.3), 0 2px 4px 0px rgba(72, 219, 251, 0.3), 0 4px 8px 0px rgba(72, 219, 251, 0.3), 0 8px 16px 0px rgba(72, 219, 251, 0.3) !important;
+    }
+  }
+  .content .header {
+    margin-bottom: 1rem;
+  }
 	.ui.circular.icon.button {
 		width: 38px;
 	}
@@ -132,16 +159,5 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-	}
-</style>
-
-<style>
-	.el-collapse-item {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-
-	.el-collapse-item .el-collapse-item__content {
-		padding-bottom: 10px;
 	}
 </style>

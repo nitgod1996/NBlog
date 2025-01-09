@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+<!--    实际上相当于是放了个index.vue-->
 		<router-view/>
 	</div>
 </template>
@@ -9,7 +10,6 @@
 		name: 'app'
 	}
 </script>
-
 <style>
 
 </style>

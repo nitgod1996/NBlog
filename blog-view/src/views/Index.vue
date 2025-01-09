@@ -6,8 +6,22 @@
 		<div class="m-mobile-hide">
 			<Header v-if="$route.name==='home'"/>
 		</div>
+<!--    波浪纹特效-->
+		<div id="waves">
+		<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+			<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+			</defs>
+			<g class="parallax">
+			<use xlink:href="#gentle-wave" x="48" y="0" />
+			<use xlink:href="#gentle-wave" x="48" y="3" />
+			<use xlink:href="#gentle-wave" x="48" y="5" />
+			<use xlink:href="#gentle-wave" x="48" y="7" />
+			</g>
+		</svg>
+		</div>
 
-		<div class="main">
+		<div class="main" :style="'margin-top: '+ top + 'rem'">
 			<div class="m-padded-tb-big">
 				<div class="ui container">
 					<div class="ui stackable grid">
@@ -17,6 +31,7 @@
 						</div>
 						<!--中间-->
 						<div class="ten wide column">
+<!--              这里，缓存路由，主要是home组件-->
 							<keep-alive include="Home">
 								<router-view/>
 							</keep-alive>
@@ -78,11 +93,14 @@
 				randomBlogList: [],
 				badges: [],
 				newBlogList: [],
-				hitokoto: {},
+				hitokoto: {}
 			}
 		},
 		computed: {
-			...mapState(['focusMode'])
+			...mapState(['focusMode']),
+      top: function () {
+        return this.$route.name === 'home' ? 0 : 3;
+      }
 		},
 		watch: {
 			//路由改变时，页面滚动至顶部
@@ -137,8 +155,10 @@
 	}
 
 	.main {
-		margin-top: 40px;
+    z-index: 40;
+		/*margin-top: 40px;*/
 		flex: 1;
+    background-color: var(--grey-1);
 	}
 
 	.main .ui.container {
@@ -158,4 +178,63 @@
 	.m-display-none {
 		display: none !important;
 	}
+
+  .waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -.6875rem;
+    min-height: 3.125rem;
+    max-height: 9.375rem;
+
+
+    /*    +mobile() {
+          height: 10vh;
+        }*/
+  }
+  /* Animation */
+  .parallax>use {
+    /*    cubic-bezier自定义函数设置播放的快慢节奏
+        infinite循环播放*/
+    animation: wave 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    fill: #fdfdfd;
+    opacity: .7;
+  }
+
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    fill: #fdfdfd;
+    opacity: .5;
+  }
+
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    fill: #fdfdfd;
+    opacity: .3;
+  }
+
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    fill: var(--grey-1);
+    /*fill: #efefef;*/
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
 </style>

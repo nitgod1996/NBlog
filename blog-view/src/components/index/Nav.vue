@@ -78,7 +78,7 @@
 		},
 		mounted() {
 			//监听页面滚动位置，改变导航栏的显示
-			window.addEventListener('scroll', () => {
+			/* window.addEventListener('scroll', () => {
 				//首页且不是移动端
 				if (this.$route.name === 'home' && this.clientSize.clientWidth > 768) {
 					if (window.scrollY > this.clientSize.clientHeight / 2) {
@@ -87,16 +87,16 @@
 						this.$refs.nav.classList.add('transparent')
 					}
 				}
-			})
+			}) */
 			//监听点击事件，收起导航菜单
-			document.addEventListener('click', (e) => {
+			/* document.addEventListener('click', (e) => {
 				//遍历冒泡
 				let flag = this.$refs.nav.contains(e.target)
 				//如果导航栏是打开状态，且点击的元素不是Nav的子元素，则收起菜单
 				if (!this.mobileHide && !flag) {
 					this.mobileHide = true
 				}
-			})
+			}) */
 		},
 		methods: {
 			toggle() {

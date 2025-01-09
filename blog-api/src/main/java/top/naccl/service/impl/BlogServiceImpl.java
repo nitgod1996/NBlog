@@ -127,7 +127,9 @@ public class BlogServiceImpl implements BlogService {
 			return pageResultFromRedis;
 		}
 		//redis没有缓存，从数据库查询，并添加缓存
+		// PageHelper.startPage相当于开启分页,通过拦截MySQL的方式,把你的查询语句拦截下来加limit.
 		PageHelper.startPage(pageNum, pageSize, orderBy);
+		// 查询数据库，对应BlogMapper.xml中<select id="getBlogInfoListByIsPublished" resultMap="blogInfo">
 		List<BlogInfo> blogInfos = processBlogInfosPassword(blogMapper.getBlogInfoListByIsPublished());
 		PageInfo<BlogInfo> pageInfo = new PageInfo<>(blogInfos);
 		PageResult<BlogInfo> pageResult = new PageResult<>(pageInfo.getPages(), pageInfo.getList());

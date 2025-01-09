@@ -1,3 +1,4 @@
+import anime from '../../../public/lib/js/anime.min'
 var canvasEl = document.createElement('canvas');
 canvasEl.style.cssText = 'position:fixed;top:0;left:0;pointer-events:none;z-index:9999999';
 document.body.appendChild(canvasEl);
@@ -7,7 +8,7 @@ var numberOfParticules = 30;
 var pointerX = 0;
 var pointerY = 0;
 var tap = 'click'; // ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown'
-var colors = CONFIG.fireworks;
+var colors = ["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"];
 
 function setCanvasSize() {
   canvasEl.width = window.innerWidth * 2;
@@ -88,7 +89,9 @@ function animateParticules(x, y) {
     duration: anime.random(1200, 1800),
     easing: 'easeOutExpo',
     update: renderParticule
-  }).add({
+  })/*
+  这部分是扩散出来的圆圈的，不知道为什么有延时，干脆就先注释了
+  .add({
     targets: circle,
     radius: anime.random(80, 160),
     lineWidth: 0,
@@ -100,7 +103,7 @@ function animateParticules(x, y) {
     duration: anime.random(1200, 1800),
     easing: 'easeOutExpo',
     update: renderParticule
-  }, 0);
+  }, 0)*/;
 }
 
 var render = anime({
