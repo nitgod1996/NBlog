@@ -9,7 +9,7 @@
 			<el-input :class="'textarea'" type="textarea" :rows="5" v-model="commentForm.content" placeholder="评论千万条，友善第一条"
 			          maxlength="250" show-word-limit :validate-event="false"></el-input>
 			<div class="el-form-item el-form-item--small emoji">
-				<img src="https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/paopao/1.png" @click="showEmojiBox">
+				<img src="https://cdn.naccl.top/blog/img/paopao/1.png" @click="showEmojiBox">
 				<div class="mask" v-show="emojiShow" @click="hideEmojiBox"></div>
 				<div class="emoji-box" v-show="emojiShow">
 					<div class="emoji-title">
@@ -32,19 +32,18 @@
 					</div>
 					<div class="emoji-tabs">
 						<a class="tab-link" :class="{'on':activeEmojiTab===0}" @click="activeEmojiTab=0">
-							<img src="https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/tv/1.png">
+							<img src="https://cdn.naccl.top/blog/img/tv/1.png">
 						</a>
 						<a class="tab-link" :class="{'on':activeEmojiTab===1}" @click="activeEmojiTab=1">
-							<img src="https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/aru/1.png">
+							<img src="https://cdn.naccl.top/blog/img/aru/1.png">
 						</a>
 						<a class="tab-link" :class="{'on':activeEmojiTab===2}" @click="activeEmojiTab=2">
-							<img src="https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/paopao/1.png">
+							<img src="https://cdn.naccl.top/blog/img/paopao/1.png">
 						</a>
 					</div>
 				</div>
 			</div>
 			<el-form-item prop="nickname">
-				<el-popover ref="nicknamePopover" placement="bottom" trigger="focus" content="输入QQ号将自动拉取昵称和头像"></el-popover>
 				<el-input v-model="commentForm.nickname" placeholder="昵称（必填）" :validate-event="false" v-popover:nicknamePopover>
 					<i slot="prefix" class="el-input__icon el-icon-user"></i>
 				</el-input>
