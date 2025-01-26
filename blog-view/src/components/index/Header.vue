@@ -6,9 +6,9 @@
 		<div class="view fix">
 <!--      当img中的src加载完毕后，会把图片缓存到浏览器，后续在div中用background url的形式将直接从浏览器中取出图片，不会下载两次图片-->
 <!--			<img ref="imgbg1" src="https://fastly.jsdelivr.net/gh/nitgod1996/images/one piece/bg1.jpg" style="display: none;">-->
-			<div class="bg1" style="background-image: url('https://fastly.jsdelivr.net/gh/nitgod1996/images/one piece/bg1.jpg');"></div>
-			<div class="bg2" style="background-image: url('https://fastly.jsdelivr.net/gh/nitgod1996/images/one piece/bg2.jpg');"></div>
-			<div class="bg3" style="background-image: url('https://fastly.jsdelivr.net/gh/nitgod1996/images/one piece/bg3.jpg');"></div>
+			<div class="bg1" style="background-image: url('https://gcore.jsdelivr.net/gh/nitgod1996/images/one piece/bg1.jpg');"></div>
+			<div class="bg2" style="background-image: url('https://gcore.jsdelivr.net/gh/nitgod1996/images/one piece/bg2.jpg');"></div>
+			<div class="bg3" style="background-image: url('https://gcore.jsdelivr.net/gh/nitgod1996/images/one piece/bg3.jpg');"></div>
 		</div>
 <!--    data-word：HTML5新属性data-*，用于存储自定义数据，可以在JavaScript中利用-->
     <div class="text-malfunction" data-word="Ninglidashen1996">
